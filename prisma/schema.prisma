@@ -17,6 +17,7 @@ model Category {
   imageUrl String
   products Product[]
 }
+
 model Product {
   id String @id @default(uuid())
   name String
