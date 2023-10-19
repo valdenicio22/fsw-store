@@ -14,12 +14,8 @@ export const computeProductTotalPrice = (
     };
   }
 
-  console.log("product", product);
-
   const totalDiscount =
     Number(product.basePrice) * (product.discountPercentage / 100);
-
-  console.log("totalDiscount", totalDiscount);
 
   return {
     ...product,
