@@ -5,7 +5,7 @@ import { PromoBanner } from "./components/promo-banner";
 import { SliderProductList } from "./components/slider-product-list";
 
 export default async function Home() {
-  const offers = await prismaClient.product.findMany({
+  const deals = await prismaClient.product.findMany({
     where: {
       discountPercentage: {
         gt: 0,
@@ -19,29 +19,52 @@ export default async function Home() {
       },
     },
   });
+  const mouses = await prismaClient.product.findMany({
+    where: {
+      category: {
+        slug: "mouses",
+      },
+    },
+  });
   return (
-    <div className="max-w-[390px]">
-      <div className="flex flex-col gap-8">
-        <div className="px-5">
-          <PromoBanner src="/banner-home-01.png" alt="discount banner" />
-        </div>
-        <div className="px-5">
-          <Categories />
-        </div>
+    <div className="flex flex-col gap-8 py-8">
+      <div className="px-5">
+        <PromoBanner
+          src="/banner-home-01.png"
+          alt="Até 55% de desconto esse mês!"
+        />
+      </div>
 
-        <div>
-          <SectionTitle>Ofertas</SectionTitle>
-          <SliderProductList products={offers} />
-        </div>
+      <div className="px-5">
+        <Categories />
+      </div>
 
-        <div className="px-5">
-          <PromoBanner src="/banner-home-02.png" alt="discount banner" />
-        </div>
+      <div>
+        <SectionTitle>Ofertas</SectionTitle>
+        <SliderProductList products={deals} />
+      </div>
+      <div className="px-5">
+        <PromoBanner
+          src="/banner-home-02.png"
+          alt="Até 55% de desconto em mouses!"
+        />
+      </div>
 
-        <div>
-          <SectionTitle>Teclados</SectionTitle>
-          <SliderProductList products={keyboards} />
-        </div>
+      <div>
+        <SectionTitle>Teclados</SectionTitle>
+        <SliderProductList products={keyboards} />
+      </div>
+
+      <div className="px-5">
+        <PromoBanner
+          src="/banner-home-03.png"
+          alt="Até 55% de desconto em mouses!"
+        />
+      </div>
+
+      <div>
+        <SectionTitle>Mouses</SectionTitle>
+        <SliderProductList products={mouses} />
       </div>
     </div>
   );
