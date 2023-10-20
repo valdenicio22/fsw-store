@@ -9,8 +9,8 @@ interface ProductItemProps {
 
 export const ProductItem = ({ product }: ProductItemProps) => {
   return (
-    <div className="flex h-[250px] w-[170px] flex-col gap-4">
-      <div className="relative flex h-[170px] w-[170px] items-center justify-center rounded-lg bg-accent">
+    <div className="flex h-[250px] flex-col gap-4">
+      <div className="relative flex h-[170px] w-full items-center justify-center rounded-lg bg-accent">
         <Image
           src={product.imageUrls[0]}
           height={0}
