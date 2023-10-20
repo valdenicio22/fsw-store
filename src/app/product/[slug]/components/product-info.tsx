@@ -79,7 +79,7 @@ export const ProductInfo = ({
         Adicionar ao carrinho
       </Button>
 
-      <div className="mb-8 mt-5 flex items-center justify-between rounded-lg bg-accent px-5 py-2">
+      <div className="mt-5 flex items-center justify-between rounded-lg bg-accent px-5 py-2">
         <div className="flex items-center gap-2">
           <TruckIcon />
 
