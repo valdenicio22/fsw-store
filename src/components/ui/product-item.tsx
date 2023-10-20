@@ -23,8 +23,7 @@ export const ProductItem = ({ product }: ProductItemProps) => {
 
         {product.discountPercentage > 0 && (
           <DiscountBadge className="absolute left-3 top-3">
-            <ArrowDownIcon size={14} />
-            {product.discountPercentage}%
+            {product.discountPercentage}
           </DiscountBadge>
         )}
       </div>
