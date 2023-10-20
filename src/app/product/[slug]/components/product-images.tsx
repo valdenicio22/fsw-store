@@ -9,7 +9,7 @@ type ProductImageProps = {
   name: string;
 };
 
-const ProductImage = ({ imageUrls, name }: ProductImageProps) => {
+export const ProductImage = ({ imageUrls, name }: ProductImageProps) => {
   const [currentDisplayedImage, setCurrentDisplayedImage] = useState(
     imageUrls[0],
   );
@@ -38,7 +38,12 @@ const ProductImage = ({ imageUrls, name }: ProductImageProps) => {
           {imageUrls.map((imageUrl) => (
             <div
               key={imageUrl}
-              className="flex h-12 items-center justify-center rounded-lg bg-accent "
+              className={`first-letter flex h-12 items-center justify-center rounded-lg bg-accent
+              ${
+                currentDisplayedImage === imageUrl &&
+                "border-2 border-solid border-primary"
+              } 
+             `}
               onClick={() => handleDisplayedImageChange(imageUrl)}
             >
               <Image
@@ -56,5 +61,3 @@ const ProductImage = ({ imageUrls, name }: ProductImageProps) => {
     </div>
   );
 };
-
-export default ProductImage;
