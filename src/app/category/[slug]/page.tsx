@@ -3,6 +3,7 @@ import { ProductItem } from "@/components/ui/product-item";
 import { CATEGORY_ICON } from "@/constants/category-icon";
 import { computeProductTotalPrice } from "@/helpers/product";
 import { prismaClient } from "@/lib/prisma";
+import Link from "next/link";
 
 type CategoryProductsProps = {
   params: {
@@ -36,10 +37,9 @@ const CategoryProducts = async ({ params }: CategoryProductsProps) => {
 
       <div className="grid grid-cols-2 gap-8">
         {category.products.map((product) => (
-          <ProductItem
-            key={product.id}
-            product={computeProductTotalPrice(product)}
-          />
+          <Link href={`product/${product.slug}`} key={product.id}>
+            <ProductItem product={computeProductTotalPrice(product)} />
+          </Link>
         ))}
       </div>
     </div>
