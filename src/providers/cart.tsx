@@ -3,7 +3,7 @@
 import { ProductWithTotalPrice } from "@/helpers/product";
 import { ReactNode, createContext, useState } from "react";
 
-interface CartProduct extends ProductWithTotalPrice {
+export interface CartProduct extends ProductWithTotalPrice {
   quantity: number;
 }
 
@@ -34,6 +34,7 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
       );
 
       setCart(upadatedCartList);
+      return;
     }
     setCart((prev) => [...prev, product]);
   };
